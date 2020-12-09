@@ -1,6 +1,7 @@
 <template>
  <div class="home">
-    <the-home></the-home>
+    <TheHome></TheHome>
+    
   </div>
 </template>
 
@@ -12,6 +13,7 @@ export default {
   name: 'Home',
   components: {
     TheHome,
+    
   }
 }
 </script>

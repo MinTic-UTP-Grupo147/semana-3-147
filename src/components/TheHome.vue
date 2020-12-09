@@ -1,39 +1,48 @@
 <template>
-<div> <h1>Inicio</h1>
+<div> 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand">{{user.nombre}}</a>
-            <form class="d-flex">
+            <div class="d-flex">
             <button 
             class="btn btn-outline-success" 
             type="submit"
             v-on:click.prevent="logOut"
             >Log out</button>
-            </form>
+            </div>
         </div>
     </nav>
+    <div class="container">
+        
+        <p>{{user}}</p>
+    </div>
 </div>
 </template>
 
 <script>
-export default {
-    data(){
-        return{
-            
-        }
-    },
-    methods:{
-        getUserDetails(){
+ export default {
+     data(){
+         return{
+            user:{}
+         }
+     },
+     methods:{
+         getUserDetails(){
+             let user = localStorage.getItem('user');
+             let token = localStorage.getItem('jwt');
 
-        },
-    logOut(){
-        localStorage.removeItem('jwt');
-        localStorage.removeItem('user');
-        this.$router.push('/');
-    }
-    },
-    created(){
-        this.getUserDetails;
-    }
-}
-</script>
+             if(token){
+                 this.user = JSON.parse(user);
+             }
+         },
+     logOut(){
+         localStorage.removeItem('jwt');
+         localStorage.removeItem('user');
+         this.$router.push('/');
+     }
+     },
+     created(){
+         this.getUserDetails();
+     }
+ }
+ </script>

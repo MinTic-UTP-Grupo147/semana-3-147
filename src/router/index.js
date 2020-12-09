@@ -18,7 +18,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
     meta:{
-      requireAuth:true
+      requiresAuth:true
     }
   }
 ]
@@ -28,5 +28,21 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to,from,next) =>{
+  if (to.matched.some(record => record.meta.requiresAuth)){
+    if (localStorage.getItem('jwt')===null){
+      next({
+        path: '/'
+      })
+    }else{
+      next();
+    }
+  }else{
+    next();
+  }
+})
+
+
 
 export default router
