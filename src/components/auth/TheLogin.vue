@@ -28,6 +28,9 @@
 </template>
 
 <script>
+
+import swal from 'sweetalert';
+
 export default {
     data(){
         return{
@@ -48,10 +51,13 @@ export default {
                 localStorage.setItem('user', JSON.stringify(user));
 
                 if(token){
+                    swal("Correcto","Login correcto","success")
                     this.$router.push('/home');
                 }
             }
-            catch{}
+            catch(e){
+                swal("Invalido","Login incorrecto","error")
+            }
 
         }
     }
