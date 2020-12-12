@@ -1,30 +1,34 @@
 <template>
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <form class="w-50 p-3 position-absolute top-50 start-50 translate-middle">
+            <img class="mb-4" src="https://placeimg.com/72/57/arch/grayscale" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        
+            <label for="inputEmail" class="visually-hidden">Email address</label>
             <input 
             type="email" 
             class="form-control"
-            id="exampleInputEmail1" 
+            id="inputEmail" 
+            placeholder="Email address"
             aria-describedby="emailHelp"
-            v-model="login.email">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            v-model="login.email"
+            required>
+        
+            <label for="exampleInputPassword1" class="visually-hidden">Password</label>
             <input 
             type="password" 
             class="form-control" 
+            placeholder="Password"
             id="exampleInputPassword1"
-            v-model="login.password">
-        </div>
+            v-model="login.password"
+            required>
         
-        <button 
-        type="submit" 
-        class="btn btn-primary"
-        @click.prevent="loginUser"
-        >Submit</button>
-</form>
+        
+            <button 
+            type="submit" 
+            class="w-100 btn btn-lg btn-primary mt-5"
+            @click.prevent="loginUser"
+            >Sign in</button>
+    </form>
 </template>
 
 <script>

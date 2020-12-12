@@ -1,7 +1,8 @@
 <template>
-    <div class="container mt-5">
-        <the-login></the-login>
-
+    <div class="text-center">
+        <main class="form-sigin">
+            <the-login></the-login>
+         <main class="form-sigin">
     </div>
 </template>
 
