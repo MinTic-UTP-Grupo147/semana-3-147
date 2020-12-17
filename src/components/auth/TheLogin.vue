@@ -47,8 +47,8 @@ export default {
     methods:{
         async loginUser(){
             try{
-                let response = await this.$http.post('/api/users/login',this.login);
-                let token = response.data.tokenReturn;
+                let response = await this.$http.post('/api/auth/signin',this.login);
+                let token = response.data.accessToken;
                 let user = response.data.user;
 
                 localStorage.setItem('jwt', token);

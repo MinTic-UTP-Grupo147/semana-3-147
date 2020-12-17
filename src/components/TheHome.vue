@@ -2,7 +2,7 @@
 <div> 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand">{{user.nombre}}</a>
+            <a class="navbar-brand">{{user.name}}</a>
             <div class="d-flex">
             <button 
             class="btn btn-lg btn-primary" 
@@ -19,7 +19,7 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><h5>Id:</h5>{{user.id}}</li>
-            <li class="list-group-item"> <h5>Username:</h5>{{user.username}}</li>
+            <li class="list-group-item"> <h5>Name:</h5>{{user.name}}</li>
             <li class="list-group-item"><h5>Email:</h5>{{user.email}}</li>
             
         </ul>
